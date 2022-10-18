@@ -58,13 +58,13 @@ const displaytime = computed(() => {
     return dateTime
 })
 
-const isWorkTime = dayjs().day() != 0 || dayjs().day() != 6 || (dayjs().hour() > 10 && dayjs().hour() < 19);
+const isDayoff = dayjs().day() == 0 || dayjs().day() == 6 || dayjs().hour() < 10 || dayjs().hour() > 19;
 
 </script>
 
 <template>
     <n-space vertical>
-        <n-tag v-if="!isWorkTime" type="error">
+        <n-tag v-if="isDayoff" type="error">
             非工作时间，禁止内卷
         </n-tag>
         <n-space>
