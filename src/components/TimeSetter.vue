@@ -58,7 +58,7 @@ const displaytime = computed(() => {
     return dateTime
 })
 
-const isDayoff = dayjs().day() == 0 || dayjs().day() == 6 || dayjs().hour() < 10 || dayjs().hour() > 19;
+const isDayoff = ref(dayjs().day() == 0 || dayjs().day() == 6 || dayjs().hour() < 10 || dayjs().hour() >= 19);
 
 </script>
 
