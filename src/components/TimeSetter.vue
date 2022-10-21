@@ -60,11 +60,14 @@ const displaytime = computed(() => {
 
 const isDayoff = ref(dayjs().day() == 0 || dayjs().day() == 6 || dayjs().hour() < 10 || dayjs().hour() >= 19);
 
+const handleClose = () => {
+    isDayoff.value = false
+}
 </script>
 
 <template>
     <n-space vertical>
-        <n-tag v-if="isDayoff" type="error">
+        <n-tag closable @close="handleClose" v-if="isDayoff" type="error">
             非工作时间，禁止内卷
         </n-tag>
         <n-space>
