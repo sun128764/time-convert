@@ -2,6 +2,50 @@
 
 This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
 
+## Deployment to Cloudflare Workers
+
+This project is configured to deploy to Cloudflare Workers/Pages.
+
+### Prerequisites
+
+Install Wrangler CLI globally:
+
+```bash
+npm install -g wrangler
+```
+
+### Deployment Steps
+
+1. Build the project:
+```bash
+npm run build
+```
+
+2. Deploy to Cloudflare Pages:
+```bash
+npm run deploy
+```
+
+Or deploy directly with wrangler:
+```bash
+wrangler pages deploy dist
+```
+
+### Local Development with Cloudflare
+
+To test the Cloudflare Pages environment locally:
+
+```bash
+npm run build
+npm run cf:dev
+```
+
+### Configuration
+
+The project includes:
+- `wrangler.toml` - Cloudflare Workers configuration
+- `functions/_middleware.ts` - Handles SPA routing for Vue Router
+
 ## Recommended IDE Setup
 
 - [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)

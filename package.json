@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build --base=/timeconvert/",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "npm run build && wrangler pages deploy dist",
+    "cf:dev": "wrangler pages dev dist"
   },
   "dependencies": {
     "dayjs": "^1.11.19",
