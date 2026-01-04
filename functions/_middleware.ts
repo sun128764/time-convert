@@ -12,6 +12,10 @@ export async function onRequest(context: {
   // If asset not found (404), serve index.html for SPA routing
   if (response.status === 404) {
     // Serve index.html for client-side routing
+    if (!context.env.ASSETS) {
+      return new Response('ASSETS binding not found', { status: 500 });
+    }
+    
     const indexResponse = await context.env.ASSETS.fetch(new URL('/index.html', url.origin));
     return new Response(indexResponse.body, {
       status: indexResponse.status,
