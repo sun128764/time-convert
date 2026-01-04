@@ -14,7 +14,8 @@ export async function onRequest(context: {
     // Serve index.html for client-side routing
     const indexResponse = await context.env.ASSETS.fetch(new URL('/index.html', url.origin));
     return new Response(indexResponse.body, {
-      ...indexResponse,
+      status: indexResponse.status,
+      statusText: indexResponse.statusText,
       headers: {
         ...Object.fromEntries(indexResponse.headers),
         'Content-Type': 'text/html;charset=UTF-8',

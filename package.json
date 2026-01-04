@@ -6,9 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build --base=/timeconvert/",
+    "build:cf": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
-    "deploy": "npm run build && wrangler pages deploy dist",
-    "cf:dev": "wrangler pages dev dist"
+    "deploy": "npm run build:cf && npx wrangler pages deploy dist",
+    "cf:dev": "npx wrangler pages dev dist"
   },
   "dependencies": {
     "dayjs": "^1.11.19",
@@ -22,6 +23,7 @@
     "unplugin-vue-components": "^30.0.0",
     "vite": "^7.3.0",
     "vite-plugin-compression2": "^2.4.0",
-    "vue-tsc": "^2.2.2"
+    "vue-tsc": "^2.2.2",
+    "wrangler": "^3.0.0"
   }
 }

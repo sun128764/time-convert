@@ -8,7 +8,7 @@ This project is configured to deploy to Cloudflare Workers/Pages.
 
 ### Prerequisites
 
-Install Wrangler CLI globally:
+Install Wrangler CLI (included as dev dependency, or install globally):
 
 ```bash
 npm install -g wrangler
@@ -16,10 +16,12 @@ npm install -g wrangler
 
 ### Deployment Steps
 
-1. Build the project:
+1. Build the project for Cloudflare:
 ```bash
-npm run build
+npm run build:cf
 ```
+
+Note: The regular `npm run build` command builds with a `/timeconvert/` base path for subdirectory deployments. Use `npm run build:cf` for root-level Cloudflare deployments.
 
 2. Deploy to Cloudflare Pages:
 ```bash
@@ -28,7 +30,7 @@ npm run deploy
 
 Or deploy directly with wrangler:
 ```bash
-wrangler pages deploy dist
+npx wrangler pages deploy dist
 ```
 
 ### Local Development with Cloudflare
@@ -36,7 +38,7 @@ wrangler pages deploy dist
 To test the Cloudflare Pages environment locally:
 
 ```bash
-npm run build
+npm run build:cf
 npm run cf:dev
 ```
 
